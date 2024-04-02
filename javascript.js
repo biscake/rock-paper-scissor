@@ -19,32 +19,11 @@ function playRound(getComputerChoice, getPlayerChoice) {
     if (getComputerChoice === getPlayerChoice) {
         return "Draw!"
     }
-    if (getComputerChoice === "scissor") 
-    {
-        if (getPlayerChoice === "rock") {
-            return "You Win!"
+    else if ((getComputerChoice === "rock" && getPlayerChoice === "scissor") || (getComputerChoice === "paper" && getPlayerChoice === "rock") || (getComputerChoice === "scissor" && getPlayerChoice === "paper")) {
+            return "You lose!";
         }
-        else {
-            return "You lose!"
-        }
-    }
-    if (getComputerChoice === "paper") 
-    {
-        if (getPlayerChoice === "scissor") {
-            return "You Win!"
-        }
-        else {
-            return "You lose!"
-        }
-    }
-    if (getComputerChoice === "rock") 
-    {
-        if (getPlayerChoice === "paper") {
-            return "You Win!"
-        }
-        else {
-            return "You lose!"
-        }
+    else {
+        return "You Win!";
     }
 }
 
