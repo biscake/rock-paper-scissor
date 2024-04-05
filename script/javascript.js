@@ -25,6 +25,8 @@ let computerScore = 0;
 
 const playerImg = document.querySelector("#playerimg");
 const cpuImg = document.querySelector("#cpuimg");
+const scoreText = document.querySelector(".score");
+const outcomeText = document.querySelector(".outcome");
 
 const playerSelection = document.querySelector(".selection");
 playerSelection.addEventListener("click", (event) => {
@@ -34,21 +36,24 @@ playerSelection.addEventListener("click", (event) => {
     updateOutcome(outcome);
     updateScore();
     updateImg(playerChoice, computerChoice);
+    if (playerScore === 5 || computerScore === 5) {
+        endGame();
+    }
 });
 
 function updateOutcome(outcome) {
-    const outcomeText = document.querySelector(".outcome");
     outcomeText.textContent = outcome;
     switch(outcome) {
         case "You Win!":
             playerScore++;
+            break;
         case "You Lose!":
             computerScore++;
+            break;
     }
 }
 
 function updateScore() {
-    const scoreText = document.querySelector(".score");
     scoreText.textContent = `Your Score: ${playerScore}`+ "\u00A0\u00A0\u00A0" + `CPU Score: ${computerScore}`;
 }
 
@@ -57,13 +62,16 @@ function updateImg(playerChoice, computerChoice) {
     cpuImg.src = `../img/${computerChoice}.svg`;
 }
 
-if (playerScore === 5) {
-    updateImg(winner, loser);
-}
-else if (computerScore === 5) {
-    updateImg(loser, winner);
-}
 
-function restartGame() {
-
+function endGame() {
+    if (playerScore === 5) {
+        updateImg("winner", "loser");
+        outcomeText.textContent = "You're a winner!";
+    }
+    else {
+        updateImg("loser", "winner");
+        outcomeText.textContent = "Try again next time...";
+    }
+    playerScore = 0;
+    computerScore = 0;
 }
