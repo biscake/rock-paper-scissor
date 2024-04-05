@@ -81,6 +81,10 @@ button {
     font-size: 36px;
 }
 
+li {
+    margin: 0;
+}
+
 button:hover {
     background-color: rgba(240, 128, 128, 0.539);
 }

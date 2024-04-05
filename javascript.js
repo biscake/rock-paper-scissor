@@ -31,13 +31,15 @@ const outcomeText = document.querySelector(".outcome");
 const playerSelection = document.querySelector(".selection");
 playerSelection.addEventListener("click", (event) => {
     let playerChoice = event.target.id;
-    const computerChoice = getComputerChoice();
-    const outcome = playRound(computerChoice, playerChoice);
-    updateOutcome(outcome);
-    updateScore();
-    updateImg(playerChoice, computerChoice);
-    if (playerScore === 5 || computerScore === 5) {
-        endGame();
+    if (CHOICE.includes(playerChoice)) {
+        const computerChoice = getComputerChoice();
+        const outcome = playRound(computerChoice, playerChoice);
+        updateOutcome(outcome);
+        updateScore();
+        updateImg(playerChoice, computerChoice);
+        if (playerScore === 5 || computerScore === 5) {
+            endGame();
+        }
     }
 });
 
