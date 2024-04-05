@@ -1,19 +1,19 @@
 const CHOICE = ["rock", "paper", "scissor"];
 const ROUNDS = 5;
 
-function getComputerChoice(choice) {
-    return choice[Math.floor(choice.length * Math.random())];
+function getComputerChoice() {
+    return CHOICE[Math.floor(CHOICE.length * Math.random())];
 }
 
 
-function playRound(computerChoice, playerSelection) {
-    if (computerChoice === playerSelection) {
+function playRound(computerChoice, playerChoice) {
+    if (computerChoice === playerChoice) {
         return "Draw!"
     }
-    else if ((computerChoice === "rock" && playerSelection === "scissor") ||
-    (computerChoice === "paper" && playerSelection === "rock") ||
-    (computerChoice === "scissor" && playerSelection === "paper")) {
-            return "You lose!";
+    else if ((computerChoice === "rock" && playerChoice === "scissor") ||
+    (computerChoice === "paper" && playerChoice === "rock") ||
+    (computerChoice === "scissor" && playerChoice === "paper")) {
+            return "You Lose!";
         }
     else {
         return "You Win!";
@@ -23,27 +23,27 @@ function playRound(computerChoice, playerSelection) {
 let playerScore = 0;
 let computerScore = 0;
 
-const playerSelection = document.querySelector("#choice");
+const playerSelection = document.querySelector(".selection");
 playerSelection.addEventListener("click", (event) => {
-    const div = document.querySelector("#result");
-    const result = document.createElement("p");
+    let playerChoice = event.target.id;
+    const computerChoice = getComputerChoice();
+    const outcome = playRound(computerChoice, playerChoice);
+    updateOutcome(outcome);
+    updateScore();
+});
 
-
-    let target = event.target;
-    let computerChoice = getComputerChoice(CHOICE);
-    const outcome = playRound(computerChoice, target.id);
-
-    result.textContent = outcome;
-    div.appendChild(result);
+function updateOutcome(outcome) {
+    const outcomeText = document.querySelector(".outcome");
+    outcomeText.textContent = outcome;
     switch(outcome) {
         case "You Win!":
             playerScore++;
-        case "You lose!":
+        case "You Lose!":
             computerScore++;
     }
-    if (playerScore === 5|| computerScore === 5) {
-        playerScore = 0;
-        computerScore = 0;
-        div.removeChild(result);
-    }
-});
+}
+
+function updateScore() {
+    const scoreText = document.querySelector(".score");
+    scoreText.textContent = `Your Score: ${playerScore}`+ "\u00A0\u00A0\u00A0" + `CPU Score: ${computerScore}`;
+}

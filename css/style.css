@@ -6,14 +6,15 @@ body {
     font-family: Caveat, sans-serif;
     padding: 0;
     margin: 0;
-    border: 1px solid purple;
+    height: 100vh;
+    justify-content: space-around;
 }
 
 .title {
     font-size: 52px;
     font-weight: 900;
     padding: 18px 0px;
-    margin-bottom: 25px;
+    margin-bottom: 0px;
     text-shadow: 5px 5px lightgray;
 }
 
