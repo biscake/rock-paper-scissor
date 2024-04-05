@@ -2,12 +2,11 @@ body {
     background-color: antiquewhite;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     font-family: Caveat, sans-serif;
-    border: 1px solid blue;
     padding: 0;
     margin: 0;
+    border: 1px solid purple;
 }
 
 .title {
@@ -21,19 +20,28 @@ body {
 .main {
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    justify-content: flex-start;
+}
+
+.outcome {
+    margin-top: 10px;
+    text-align: center;
+    margin: 0;
+    font-size: 36px;
 }
 
 .refselection {
     text-align: center;
     font-weight: 600;
     font-size: larger ;
-    margin-bottom: 10px;
+    padding-top: 0;
+    margin: 10px 0;
 }
 
 .imgs {
     display: flex;
     justify-content: space-evenly;
+    align-items: center;
 }
 
 .img-container {
@@ -49,6 +57,11 @@ body {
     height: 200px;
 }
 
+.score {
+    margin: 15px 0;
+    font-size: larger;
+}
+
 ul {
     padding: 0;
     margin: 0;
@@ -60,6 +73,9 @@ ul {
 
 button {
     width: 175px;
-    height: 125px;
+    height: 100px;
     border-radius: 8px;
+    background-color: lightcoral;
+    font-family: Caveat, sans-serif;
+    font-size: 36px;
 }
