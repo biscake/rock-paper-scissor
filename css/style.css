@@ -80,3 +80,7 @@ button {
     font-family: Caveat, sans-serif;
     font-size: 36px;
 }
+
+button:hover {
+    background-color: rgba(240, 128, 128, 0.539);
+}
