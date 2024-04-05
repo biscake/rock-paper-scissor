@@ -23,6 +23,9 @@ function playRound(computerChoice, playerChoice) {
 let playerScore = 0;
 let computerScore = 0;
 
+const playerImg = document.querySelector("#playerimg");
+const cpuImg = document.querySelector("#cpuimg");
+
 const playerSelection = document.querySelector(".selection");
 playerSelection.addEventListener("click", (event) => {
     let playerChoice = event.target.id;
@@ -30,6 +33,7 @@ playerSelection.addEventListener("click", (event) => {
     const outcome = playRound(computerChoice, playerChoice);
     updateOutcome(outcome);
     updateScore();
+    updateImg(playerChoice, computerChoice);
 });
 
 function updateOutcome(outcome) {
@@ -46,4 +50,20 @@ function updateOutcome(outcome) {
 function updateScore() {
     const scoreText = document.querySelector(".score");
     scoreText.textContent = `Your Score: ${playerScore}`+ "\u00A0\u00A0\u00A0" + `CPU Score: ${computerScore}`;
+}
+
+function updateImg(playerChoice, computerChoice) {
+    playerImg.src = `../img/${playerChoice}.svg`;
+    cpuImg.src = `../img/${computerChoice}.svg`;
+}
+
+if (playerScore === 5) {
+    updateImg(winner, loser);
+}
+else if (computerScore === 5) {
+    updateImg(loser, winner);
+}
+
+function restartGame() {
+
 }
