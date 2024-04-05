@@ -5,7 +5,7 @@ function getComputerChoice(choice) {
     return choice[Math.floor(choice.length * Math.random())];
 }
 
-function getPlayerChoice() {
+function playerSelection() {
     let userInput;
     do
     {
@@ -15,13 +15,13 @@ function getPlayerChoice() {
     return userInput.toLowerCase();
 }
 
-function playRound(getComputerChoice, getPlayerChoice) {
-    if (getComputerChoice === getPlayerChoice) {
+function playRound(getComputerChoice, playerSelection) {
+    if (getComputerChoice === playerSelection) {
         return "Draw!"
     }
-    else if ((getComputerChoice === "rock" && getPlayerChoice === "scissor") ||
-    (getComputerChoice === "paper" && getPlayerChoice === "rock") ||
-    (getComputerChoice === "scissor" && getPlayerChoice === "paper")) {
+    else if ((getComputerChoice === "rock" && playerSelection === "scissor") ||
+    (getComputerChoice === "paper" && playerSelection === "rock") ||
+    (getComputerChoice === "scissor" && playerSelection === "paper")) {
             return "You lose!";
         }
     else {
@@ -29,7 +29,3 @@ function playRound(getComputerChoice, getPlayerChoice) {
     }
 }
 
-for (let round = 0; round < ROUNDS; round++)
-{
-    console.log(playRound(getComputerChoice(CHOICE), getPlayerChoice()));
-}

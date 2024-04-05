@@ -4,9 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissor</title>
-    <script src="javascript.js"></script>
+    <script src="script/javascript.js" defer></script>
+    <link href="/css/style.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Yarndings+20&display=swap" rel="stylesheet">
 </head>
 <body>
-    
+    <div class="title">ROCK, PAPER, SCISSOR</div>
+    <div class="main">
+        <div class="imgs">  
+            <div>
+                <p class="refselection">YOU</p>
+                <div class="img-container">
+                    <img id="playerimg" src="img/unknown.svg" alt="Unknown Choice">
+                </div>
+            </div>
+            <div>
+                <p class="refselection">CPU</p>
+                <div class="img-container">
+                    <img id="cpuimg" src="img/unknown.svg" alt="Unknown Choice">
+                </div>
+            </div>
+        </div>
+        <div class="selection">
+            <ul>
+                <li><button id="rock">Rock</button></li>
+                <li><button id="paper">Paper</button></li>
+                <li><button id="scissor">Scissor</button></li>
+            </ul>
+        </div>
+    </div>
+    <div id="result"></div>
 </body>
 </html>
